@@ -14,21 +14,21 @@ Before you begin, make sure you have the following:
 
 Use one of the two options to use this template.
 
-1. Clone the repository
-- Open your terminal and navigate to the desired directory where you want to clone the repository.
-- Run the following command to clone the GitHub repository:
-
-```git clone https://github.com/MScheiterle/ReactFirebaseTemplate.git```
-
-2. Copy the template
+1. Copy the template
 - Open the [Template Page](https://github.com/new?template_name=ReactFirebaseTemplate&template_owner=MScheiterle)
 - Sign in if needed and name your new repository
 - Click the `Create repository` button
 
-3. Fork the repository
+2. Fork the repository
 - Open the [Project Repo](https://github.com/MScheiterle/ReactFirebaseTemplate)
 - Sign in if needed and name your new repository
 - Click `Create fork`
+
+Now clone the repository you just made
+- Open your terminal and navigate to the desired directory where you want to clone the repository.
+- Run the following command to clone the GitHub repository (Link Example: `https://github.com/MScheiterle/ReactFirebaseTemplate.git`):
+
+```git clone <YOUR_REPOSITORY_GIT_LINK>```
 
 ## Step 2: Set up a Firebase Project
 
@@ -134,6 +134,17 @@ env:
 ```
 
 Then change the given command `- run: npm ci && npm run build` to `- run: npm i && npm run build`
+
+Then, if you added the Pull Request workflow add the line `permissions: write-all` like in this example:
+
+```
+build_and_preview:
+    if: "${{ github.event.pull_request.head.repo.full_name == github.repository }}"
+    runs-on: ubuntu-latest
+    permissions: write-all
+    steps:
+      - uses: actions/checkout@v3
+```
 
 Finally, inside your GitHub project, you must add the environment secrets
 
