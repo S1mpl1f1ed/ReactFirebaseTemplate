@@ -143,7 +143,7 @@ build_and_preview:
     runs-on: ubuntu-latest
     permissions: write-all
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 ```
 
 Finally, inside your GitHub project, you must add the environment secrets
@@ -178,7 +178,7 @@ Finally, inside your GitHub project, you must add the environment secrets
 service cloud.firestore {
   match /databases/{database}/documents {
     match /users/{userID} {
-      allow create: if !exists(/databases/$(database)/documents/users/$(userID));
+      allow create: if !exists(/databases/$(database)/documents/users/$(userID));m
       allow read, write: if request.auth != null && request.auth.uid == userID;
 
     	match /public/{docuement=**} {
