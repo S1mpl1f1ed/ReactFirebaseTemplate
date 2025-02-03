@@ -27,7 +27,7 @@
     "firebase": "^11.0.2",
     "react": "^18.2.0",
     "react-firebase-hooks": "^5.1.1",
-    "react-router-dom": "^6.14.2",
+    "react-router-dom": "^7.1.5",
     "react-scripts": "5.0.1",
     "sass": "^1.63.6"
   },
